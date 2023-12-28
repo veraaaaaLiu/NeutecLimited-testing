@@ -1,0 +1,28 @@
+.block-container {
+    width: 100%;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    padding: 0 10px;
+    gap: 10px;
+
+    > div {
+        height: 100px;
+        border: black solid 2px;
+        background: radial-gradient(circle, rgba(113, 81, 95, 1) 81%, rgba(0, 0, 0, 1) 100%);
+
+        &.active {
+            animation: block 0.8s ease-in-out alternate infinite;
+            will-change: opacity;
+        }
+    }
+}
+
+@keyframes block {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

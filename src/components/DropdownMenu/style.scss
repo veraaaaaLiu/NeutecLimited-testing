@@ -1,0 +1,17 @@
+ul{
+    list-style: none;
+    width: 300px;
+    padding-left: 30px;
+    li{
+        line-height: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        > div{
+            display: flex;
+            align-items: center;
+            &.active{
+                color: rgb(144, 40, 40);
+            }
+        }
+    }
+}
