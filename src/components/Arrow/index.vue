@@ -1,4 +1,12 @@
 <script setup>
+/**
+ * Represents the Arrow component.
+ * 
+ * @component Arrow
+ * @description The Arrow component is used to display an arrow pointing to the left.
+ * @props {string} direction - The direction of the arrow. 
+ * @props {string} color - The color of the arrow.
+ */
 import { defineProps } from 'vue'
 const props = defineProps({
     direction: String,
@@ -12,7 +20,6 @@ const directionMap = {
     up: '270deg',
     down: '90deg',
 }
-
 </script>
 
 <template>
