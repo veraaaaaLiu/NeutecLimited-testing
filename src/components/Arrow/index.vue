@@ -30,13 +30,5 @@ const directionMap = {
 </template>
 
 <style lang="scss" scoped>
-svg {
-    transition: all 0.3s ease-in-out;
-    transform: rotate(var(--direction));
-    cursor: pointer;
-
-    path {
-        stroke: var(--color)
-    }
-}
+@import './style.scss';
 </style>

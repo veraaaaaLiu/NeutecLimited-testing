@@ -1,5 +1,5 @@
 .ball-container {
-    > div {
+    >div {
         width: 30px;
         height: 30px;
         background-color: #A5F12B;
@@ -12,8 +12,9 @@
 
         &.active.ball-1 {
             will-change: transform;
-            animation: ball 5s ease-in-out infinite;
-            transition: 0.3s opacity;
+            animation: ball 3s ease-in-out infinite forwards;
+            transition: 0.5s opacity;
+            opacity: 0;
         }
     }
 }
@@ -23,12 +24,14 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     5% {
         transform: translateX(0);
         opacity: 1;
     }
 
     100% {
+        opacity: 1;
         transform: translateX(100vw);
     }
 }
