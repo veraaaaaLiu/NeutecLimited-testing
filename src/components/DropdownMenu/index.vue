@@ -6,9 +6,8 @@ import { useLocalStorage } from '@/composables/useLocalStorage';
 
 const props = defineProps({
     menuItems: Array,
-    selectorItem: Object
+    selectorItem: String
 });
-
 
 const { storage } = useLocalStorage('selectedItem', '');
 const selectedItem = ref(storage.value || null);
@@ -61,6 +60,7 @@ watch(
     (newSelectedItem, oldSelectedItem) => {
         if (newSelectedItem) {
             expandAllParents(props.menuItems, newSelectedItem);
+            // console.log(props.menuItems)
         }
     },
 );

@@ -20,7 +20,7 @@ npm run dev
 ### todo
 - [x] 100 顆球，使用 canvas
 - [x] 確認球的隨機位置不超過 main
-- [ ] 側邊欄的 select bug
+- [x] 側邊欄的 select bug
 - [ ] 加入註解
 - [ ] 選擇 dropdownMenu，selector 也同步替換
 - [ ] 側邊欄 isAsideOpened 狀態也寫入 storage

@@ -12,13 +12,18 @@ const props = defineProps({
   isAsideOpened: Boolean,
 });
 
+const handleNestedItems = (items, selectedItemKey) => {
+  items.forEach((item) => {
+    item.expanded = item.key === selectedItemKey;
+    if (item.children) {
+      handleNestedItems(item.children, selectedItemKey);
+    }
+  });
+};
+
 const handleSelectItem = (selectedItem) => {
   selectorItem.value = selectedItem.key;
-  // item.key 若等於 val.key，則將 item.expanded 設置為true
-  menuItems.value = menuItems.value.map((item) => {
-    item.expanded = item.key === selectedItem.key;
-    return item;
-  });
+  handleNestedItems(menuItems.value, selectedItem.key);
 };
 
 const hambergerClick = () => {
