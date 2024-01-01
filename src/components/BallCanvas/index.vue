@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const canvasElement = ref();
 const context = ref();
@@ -24,11 +24,21 @@ onMounted(() => {
   animate();
 });
 
+onUnmounted(() => {
+  cancelAnimationFrame(animationFrameId);
+
+  if (context.value) {
+    context.value.clearRect(0, 0, 0, 0);
+  }
+});
+
+let animationFrameId;
+
 function initialCanvas() {
   const main = document.querySelector('main');
   const mainPosition = main.getBoundingClientRect();
-  const randomTargetX = Math.floor(Math.random() * (mainPosition.height - 30));
-  const randomTargetY = Math.floor(Math.random() * (mainPosition.width - 30));
+  const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30));
+  const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 30));
   canvasElement.value.width = mainPosition.width;
   canvasElement.value.height = mainPosition.height - 32.5;
 
@@ -41,7 +51,7 @@ function initialCanvas() {
 }
 
 function animate() {
-  requestAnimationFrame(animate);
+  animationFrameId = requestAnimationFrame(animate);
 
   if (!context.value) {
     return;
