@@ -40,7 +40,7 @@ const setBallPosition = (balls, type) => {
 
 const moveBalls = (balls) => {
   balls.forEach((ball) => {
-    ball.style.transition = `all 1s linear`;
+    ball.style.transition = `all 2s linear`;
     ball.style.top = `${targetPoint.value.x - 15}px`;
     ball.style.left = `${targetPoint.value.y - 15}px`;
 
