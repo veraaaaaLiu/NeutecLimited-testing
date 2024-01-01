@@ -31,12 +31,13 @@ const setBallPosition = (balls, type) => {
   if (type === 'randomPostion') {
     const main = document.querySelector('main');
     const mainPosition = main.getBoundingClientRect();
-    const x = Math.floor(Math.random() * (mainPosition.height - 30)) + 15;
-    const y = Math.floor(Math.random() * (mainPosition.width - 30)) + 15;
+    const x = Math.floor(Math.random() * (mainPosition.width - 30)) + 15;
+    const y = Math.floor(Math.random() * (mainPosition.height - 30)) + 15;
     targetPoint.value = { x, y };
+
+    console.log(targetPoint.value)
   }
 };
-
 
 const moveBalls = (balls) => {
   balls.forEach((ball) => {
@@ -56,7 +57,6 @@ const moveBalls = (balls) => {
   }
 };
 
-
 const setDefaultBallPosition = () => {
   const balls = document.querySelectorAll('.ball-container .active');
   setBallPosition(balls, 'default');
@@ -68,7 +68,6 @@ const setRandomBallPosition = () => {
   moveBalls(balls);
 };
 
-
 const positionHandlers = {
   1: setDefaultBallPosition,
   2: setRandomBallPosition,
@@ -77,8 +76,9 @@ const positionHandlers = {
 watch(
   () => props.ballType,
   (newSelectedItem, oldSelectedItem) => {
-    if (newSelectedItem !== undefined) {
-      // 確保 DOM 元素已經被正確渲染和定位
+    if (newSelectedItem === 0 || newSelectedItem === 3) {
+      return;
+    }else{
       requestAnimationFrame(() => {
         positionHandlers[newSelectedItem]();
       });
