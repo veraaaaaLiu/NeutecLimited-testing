@@ -17,7 +17,7 @@ npm run dev
 ### 切版前判斷
 1. 因為樣式不多就不使用 tailwind，手切樣式為主
 
-### 繼續的 todo
+### todo
 - [x] 100 顆球，使用 canvas
 - [ ] 選擇 dropdownMenu，selector 也同步替換
 - [ ] 側邊欄 isAsideOpened 狀態也寫入 storage
