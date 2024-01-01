@@ -31,19 +31,17 @@ const setBallPosition = (balls, type) => {
   if (type === 'randomPostion') {
     const main = document.querySelector('main');
     const mainPosition = main.getBoundingClientRect();
-    const x = Math.floor(Math.random() * (mainPosition.width - 30)) + 15;
-    const y = Math.floor(Math.random() * (mainPosition.height - 30)) + 15;
+    const x = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
+    const y = Math.floor(Math.random() * (mainPosition.height - 30));
     targetPoint.value = { x, y };
-
-    console.log(targetPoint.value)
   }
 };
 
 const moveBalls = (balls) => {
   balls.forEach((ball) => {
     ball.style.transition = `all 2s linear`;
-    ball.style.top = `${targetPoint.value.x - 15}px`;
-    ball.style.left = `${targetPoint.value.y - 15}px`;
+    ball.style.top = `${targetPoint.value.y - 15}px`;
+    ball.style.left = `${targetPoint.value.x - 15}px`;
 
     ball.addEventListener('transitionend', callback);
   });

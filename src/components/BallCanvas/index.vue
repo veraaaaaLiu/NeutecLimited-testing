@@ -37,7 +37,7 @@ let animationFrameId;
 function initialCanvas() {
   const main = document.querySelector('main');
   const mainPosition = main.getBoundingClientRect();
-  const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30));
+  const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
   const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 30));
   canvasElement.value.width = mainPosition.width;
   canvasElement.value.height = mainPosition.height - 32.5;
