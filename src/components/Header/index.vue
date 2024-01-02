@@ -12,6 +12,7 @@ const props = defineProps({
   isAsideOpened: Boolean,
 });
 
+// 遞迴處理選單，將選取的項目展開，其他項目收合
 const handleNestedItems = (items, selectedItemKey) => {
   items.forEach((item) => {
     item.expanded = item.key === selectedItemKey;
@@ -39,17 +40,17 @@ const ballTypeSelected = (type) => {
   <header>
     <!-- 球的狀態選擇按鈕 -->
     <div>
-      <Button @click="ballTypeSelected(1)">
+      <Button @click="ballTypeSelected(1)" color="#000" backgroundColor='#fff' borderColor="#000">
         <template v-slot:wording>
           <p>4顆球向右</p>
         </template>
       </Button>
-      <Button @click="ballTypeSelected(2)">
+      <Button @click="ballTypeSelected(2)" color="#000" backgroundColor='#fff' borderColor="#000">
         <template v-slot:wording>
           <p>4顆球往同個點</p>
         </template>
       </Button>
-      <Button @click="ballTypeSelected(3)">
+      <Button @click="ballTypeSelected(3)" color="#000" backgroundColor='#fff' borderColor="#000">
         <template v-slot:wording>
           <p>100顆球隨機</p>
         </template>

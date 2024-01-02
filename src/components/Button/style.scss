@@ -1,6 +1,7 @@
 button {
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+    color: var(--color);
     padding: 0 5px;
     font-size: 13px;
     cursor: pointer;
