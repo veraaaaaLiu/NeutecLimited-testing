@@ -1,17 +1,17 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
-const canvasElement = ref();
+const canvas = ref();
 const context = ref();
 const balls = [];
 
 onMounted(() => {
-  context.value = canvasElement.value?.getContext('2d') || undefined;
+  context.value = canvas.value?.getContext('2d') || undefined;
 
   for (let i = 0; i < 100; i++) {
     balls.push({
-      x: Math.random() * canvasElement.value.width,
-      y: Math.random() * canvasElement.value.height,
+      x: Math.random() * canvas.value.width,
+      y: Math.random() * canvas.value.height,
       targetX: 0,
       targetY: 0,
       speed: 2,
@@ -39,12 +39,12 @@ function initialCanvas() {
   const mainPosition = main.getBoundingClientRect();
   const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
   const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 30));
-  canvasElement.value.width = mainPosition.width;
-  canvasElement.value.height = mainPosition.height - 32.5;
+  canvas.value.width = mainPosition.width;
+  canvas.value.height = mainPosition.height - 32.5;
 
   for (const ball of balls) {
-    ball.x = Math.random() * canvasElement.value.width;
-    ball.y = Math.random() * canvasElement.value.height;
+    ball.x = Math.random() * canvas.value.width;
+    ball.y = Math.random() * canvas.value.height;
     ball.targetX = randomTargetX;
     ball.targetY = randomTargetY;
   }
@@ -57,7 +57,7 @@ function animate() {
     return;
   }
 
-  context.value.clearRect(0, 0, canvasElement.value.width, canvasElement.value.height);
+  context.value.clearRect(0, 0, canvas.value.width, canvas.value.height);
 
   for (const ball of balls) {
     updateBall(ball);
@@ -97,7 +97,7 @@ function drawBall(ball) {
 </script>
 
 <template>
-  <canvas ref="canvasElement" />
+  <canvas ref="canvas" />
 </template>
 
 <style lang="scss" scoped>
