@@ -7,7 +7,7 @@ const props = defineProps({
   menuItems: Array,
 });
 
-const emit = defineEmits(['seleced']);
+const emit = defineEmits(['selected']);
 const flatItems = ref([]);
 const selectedItem = ref('');
 
@@ -29,7 +29,7 @@ const selectItem = (itemKey) => {
   );
 
   if (selectedItemValue) {
-    emit('seleced', selectedItemValue);
+    emit('selected', selectedItemValue);
     storage.value = itemKey;
   }
 };
@@ -45,7 +45,7 @@ onMounted(() => {
   if (lastSelectedItemKey) {
     selectedItem.value = lastSelectedItemKey;
     if (lastSelectedItem) {
-      emit('seleced', lastSelectedItem);
+      emit('selected', lastSelectedItem);
     }
   } else if (flatItems.value.length > 0) {
     // localStorage 沒有紀錄，則將第一個項目設定為選擇的項目
