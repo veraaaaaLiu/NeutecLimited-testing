@@ -14,7 +14,7 @@ onMounted(() => {
       y: Math.random() * canvas.value.height,
       targetX: 0,
       targetY: 0,
-      speed: 2,
+      speed: 1.5,
       radius: 15,
       number: 0
     });
@@ -35,20 +35,20 @@ onUnmounted(() => {
 let animationFrameId;
 
 function initialCanvas() {
+  const devicePixelRatio = window.devicePixelRatio || 1;
   const main = document.querySelector('main');
   const mainPosition = main.getBoundingClientRect();
-  const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
-  const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 30));
-  const devicePixelRatio = window.devicePixelRatio || 1;
-  canvas.value.width = mainPosition.width * devicePixelRatio;
-  canvas.value.height = (mainPosition.height - 32.5) * devicePixelRatio;
+  const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30));
+  const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 62.5));
+  canvas.value.width = (mainPosition.width) * devicePixelRatio;
+  canvas.value.height = (mainPosition.height - 62.5) * devicePixelRatio;
   canvas.value.style.width = `${mainPosition.width}px`;
-  canvas.value.style.height = `${mainPosition.height - 32.5}px`;
+  canvas.value.style.height = `${mainPosition.height - 62.5}px`;
   context.value.scale(devicePixelRatio, devicePixelRatio);
 
   for (const ball of balls) {
-    ball.x = Math.random() * canvas.value.width;
-    ball.y = Math.random() * canvas.value.height;
+    ball.x = Math.random() * ((canvas.value.width - 30) / devicePixelRatio);
+    ball.y = Math.random() * ((canvas.value.height - 62.5) / devicePixelRatio);
     ball.targetX = randomTargetX;
     ball.targetY = randomTargetY;
   }
