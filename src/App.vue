@@ -10,11 +10,11 @@ const setBlockAmount = ref(9)
 const setBlockNumberAnimate = ref([3, 5, 9])
 const setBallAmount = ref(0)
 const setBallPosition = ref([1, 3, 7, 9])
-const setBallType = ref(0) // 1: 預設, 2: 往同一個不規則的點移動
+const setBallType = ref(0) // 1: 預設，四個球向右 / 2: 四顆球往同一個隨機的點移動
 
 // 側邊欄狀態
 const isAsideOpened = ref(false)
-const hambergerClick = () => {
+const hamburgerClick = () => {
   isAsideOpened.value = !isAsideOpened.value
 }
 const closeAside = () => {
@@ -33,7 +33,7 @@ const ballTypeSelected = (type) => {
 
 <template>
   <!-- header -->
-  <Header :isAsideOpened="isAsideOpened" @hambergerClick="hambergerClick" @ballTypeSelected="ballTypeSelected" />
+  <Header :isAsideOpened="isAsideOpened" @hamburgerClick="hamburgerClick" @ballTypeSelected="ballTypeSelected" />
 
   <!-- content -->
   <main @click="closeAside">
