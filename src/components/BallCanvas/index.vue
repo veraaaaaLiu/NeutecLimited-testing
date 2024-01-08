@@ -39,8 +39,12 @@ function initialCanvas() {
   const mainPosition = main.getBoundingClientRect();
   const randomTargetX = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
   const randomTargetY = Math.floor(Math.random() * (mainPosition.height - 30));
-  canvas.value.width = mainPosition.width;
-  canvas.value.height = mainPosition.height - 32.5;
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  canvas.value.width = mainPosition.width * devicePixelRatio;
+  canvas.value.height = (mainPosition.height - 32.5) * devicePixelRatio;
+  canvas.value.style.width = `${mainPosition.width}px`;
+  canvas.value.style.height = `${mainPosition.height - 32.5}px`;
+  context.value.scale(devicePixelRatio, devicePixelRatio);
 
   for (const ball of balls) {
     ball.x = Math.random() * canvas.value.width;
