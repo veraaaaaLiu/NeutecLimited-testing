@@ -74,7 +74,7 @@ const positionHandlers = {
 watch(
   () => props.ballType,
   (newSelectedItem, oldSelectedItem) => {
-    if (newSelectedItem === 0 || newSelectedItem === 3) {
+    if (newSelectedItem === 0) {
       return;
     }else{
       requestAnimationFrame(() => {
@@ -88,7 +88,7 @@ watch(
 
 <template>
   <div class="ball-container">
-    <div v-for="i in props.ballAmount" :key="i" :class="props.ballType !== 3 ? setBallClass(i):'ball-3'">0</div>
+    <div v-for="i in props.ballAmount" :key="i" :class="setBallClass(i)">0</div>
   </div>
 </template>
 
