@@ -28,7 +28,7 @@ const setBallPosition = (balls, type) => {
     ball.style.left = `${y}px`;
   });
 
-  if (type === 'randomPostion') {
+  if (type === 'randomPosition') {
     const main = document.querySelector('main');
     const mainPosition = main.getBoundingClientRect();
     const x = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
@@ -62,7 +62,7 @@ const setDefaultBallPosition = () => {
 
 const setRandomBallPosition = () => {
   const balls = document.querySelectorAll('.ball-container .ball-2.active');
-  setBallPosition(balls, 'randomPostion');
+  setBallPosition(balls, 'randomPosition');
   moveBalls(balls);
 };
 
