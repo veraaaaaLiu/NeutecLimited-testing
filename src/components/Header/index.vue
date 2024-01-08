@@ -6,7 +6,7 @@ import Button from '@/components/Button/index.vue';
 import MenuItem from './data';
 const menuItems = ref(MenuItem);
 const selectorItem = ref('');
-const emit = defineEmits(['hambergerClick','ballTypeSelected']);
+const emit = defineEmits(['hamburgerClick','ballTypeSelected']);
 
 const props = defineProps({
   isAsideOpened: Boolean,
@@ -27,8 +27,8 @@ const handleSelectItem = (selectedItem) => {
   handleNestedItems(menuItems.value, selectedItem.key);
 };
 
-const hambergerClick = () => {
-  emit('hambergerClick');
+const hamburgerClick = () => {
+  emit('hamburgerClick');
 };
 
 const ballTypeSelected = (type) => {
@@ -57,7 +57,7 @@ const ballTypeSelected = (type) => {
       </Button>
     </div>
     <!-- 漢堡 -->
-    <button class="hamburger" type="button" aria-label="Menu" @click="hambergerClick">
+    <button class="hamburger" type="button" aria-label="Menu" @click="hamburgerClick">
       <span></span>
     </button>
   </header>
