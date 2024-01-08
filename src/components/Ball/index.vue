@@ -28,7 +28,7 @@ const setBallPosition = (balls, type) => {
     ball.style.left = `${y}px`;
   });
 
-  if (type === 'randomPostion') {
+  if (type === 'randomPosition') {
     const main = document.querySelector('main');
     const mainPosition = main.getBoundingClientRect();
     const x = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
@@ -62,7 +62,7 @@ const setDefaultBallPosition = () => {
 
 const setRandomBallPosition = () => {
   const balls = document.querySelectorAll('.ball-container .ball-2.active');
-  setBallPosition(balls, 'randomPostion');
+  setBallPosition(balls, 'randomPosition');
   moveBalls(balls);
 };
 
@@ -74,7 +74,7 @@ const positionHandlers = {
 watch(
   () => props.ballType,
   (newSelectedItem, oldSelectedItem) => {
-    if (newSelectedItem === 0 || newSelectedItem === 3) {
+    if (newSelectedItem === 0) {
       return;
     }else{
       requestAnimationFrame(() => {
@@ -88,7 +88,7 @@ watch(
 
 <template>
   <div class="ball-container">
-    <div v-for="i in props.ballAmount" :key="i" :class="props.ballType !== 3 ? setBallClass(i):'ball-3'">0</div>
+    <div v-for="i in props.ballAmount" :key="i" :class="setBallClass(i)">0</div>
   </div>
 </template>
 
