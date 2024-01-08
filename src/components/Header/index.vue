@@ -64,7 +64,7 @@ const ballTypeSelected = (type) => {
   <!-- 側邊欄 -->
   <aside :class="{ active: isAsideOpened }">
     <DropdownMenu :menuItems="menuItems" :selectorItem="selectorItem" />
-    <Selector :menuItems="menuItems" @seleced="handleSelectItem" />
+    <Selector :menuItems="menuItems" @selected="handleSelectItem" />
   </aside>
 </template>
 
