@@ -31,8 +31,8 @@ const setBallPosition = (balls, type) => {
   if (type === 'randomPosition') {
     const main = document.querySelector('main');
     const mainPosition = main.getBoundingClientRect();
-    const x = Math.floor(Math.random() * (mainPosition.width - 30 - 32.5));
-    const y = Math.floor(Math.random() * (mainPosition.height - 30));
+    const x = Math.floor(Math.random() * (mainPosition.width - 30));
+    const y = Math.floor(Math.random() * (mainPosition.height - 62.5));
     targetPoint.value = { x, y };
   }
 };
